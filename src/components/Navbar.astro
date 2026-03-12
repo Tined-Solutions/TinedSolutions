@@ -1,0 +1,87 @@
+---
+const navLinks = [
+  { label: "Nosotros", href: "#why-us" },
+  { label: "Equipo", href: "#team" },
+  { label: "Trabajos", href: "#portfolio" },
+  { label: "Contacto", href: "#contact" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur-sm">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="text-lg font-semibold tracking-tight text-slate-100">
+      Tined<span class="text-slate-400">Solutions</span>
+    </a>
+
+    <ul class="hidden items-center gap-8 md:flex">
+      {
+        navLinks.map(({ label, href }) => (
+          <li>
+            <a
+              href={href}
+              class="text-sm text-slate-400 transition-colors hover:text-slate-100"
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a
+      href="#contact"
+      class="hidden rounded border border-slate-700 px-4 py-2 text-sm text-slate-300 transition-colors hover:border-slate-500 hover:text-slate-100 md:block"
+    >
+      Trabajemos juntos
+    </a>
+
+    <button
+      id="mobile-menu-btn"
+      class="flex flex-col gap-1.5 md:hidden"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <span class="h-px w-6 bg-slate-400 transition-all"></span>
+      <span class="h-px w-6 bg-slate-400 transition-all"></span>
+      <span class="h-px w-4 bg-slate-400 transition-all"></span>
+    </button>
+  </nav>
+
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-slate-800 bg-slate-950 px-6 py-4 md:hidden"
+  >
+    <ul class="flex flex-col gap-4">
+      {
+        navLinks.map(({ label, href }) => (
+          <li>
+            <a
+              href={href}
+              class="mobile-nav-link block text-sm text-slate-400 transition-colors hover:text-slate-100"
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+  btn?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("hidden") === false;
+    btn.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menu?.classList.add("hidden");
+      btn?.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>
