@@ -22,8 +22,28 @@ npm install
 | Comando           | Descripción                                              |
 | ----------------- | -------------------------------------------------------- |
 | `npm run dev`     | Inicia el servidor de desarrollo en `localhost:4321`     |
-| `npm run build`   | Genera el sitio estático en la carpeta `dist/`           |
+| `npm run build`   | Genera la build de producción en la carpeta `dist/`      |
 | `npm run preview` | Previsualiza la build de producción localmente           |
+| `npm run test`    | Ejecuta tests unitarios (Vitest)                         |
+
+## Formulario de contacto (envío a Gmail)
+
+El formulario de contacto usa el endpoint `POST /api/contact`, que envía correos mediante Resend hacia la bandeja de `tinedsolutions@gmail.com`.
+
+### Configuración de entorno
+
+1. Copia `.env.example` a `.env`.
+2. Configura las variables:
+
+```bash
+RESEND_API_KEY=tu_api_key
+CONTACT_TO_EMAIL=tinedsolutions@gmail.com
+CONTACT_FROM_EMAIL="Tined Solutions <onboarding@resend.dev>"
+```
+
+### Nota de producción
+
+- Para uso real, se recomienda configurar un dominio remitente propio verificado en Resend y actualizar `CONTACT_FROM_EMAIL`.
 
 ## Estructura del proyecto
 

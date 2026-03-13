@@ -2,13 +2,13 @@
 import { reasons } from "../data/reasons";
 ---
 
-<section id="why-us" class="border-t border-slate-800 py-24 px-6">
+<section id="why-us" class="reveal-on-scroll border-t border-elegance-gold/35 py-24 px-6">
   <div class="mx-auto max-w-6xl">
     <div class="mb-16 max-w-xl">
-      <p class="mb-3 text-xs font-medium uppercase tracking-widest text-slate-500">
+      <p class="mb-3 text-xs font-medium uppercase tracking-widest text-elegance-gold">
         Por qué elegirnos
       </p>
-      <h2 class="text-3xl font-light leading-snug text-slate-100 sm:text-4xl">
+      <h2 class="text-3xl font-light leading-snug text-tined-blue sm:text-4xl">
         Resultados que hablan <br />
         <span class="font-semibold">por sí solos.</span>
       </h2>
@@ -17,12 +17,12 @@ import { reasons } from "../data/reasons";
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
       {
         reasons.map(({ title, description, icon }) => (
-          <article class="group border border-slate-800 p-6 transition-colors hover:border-slate-600">
-            <span class="mb-4 block text-xl text-slate-500 transition-colors group-hover:text-slate-300">
+          <article class="futuristic-card group reveal-on-scroll border border-elegance-gold/35 p-6 transition-colors hover:border-elegance-gold">
+            <span class="mb-4 block text-xl text-elegance-gold transition-colors group-hover:text-tined-blue">
               {icon}
             </span>
-            <h3 class="mb-2 text-sm font-semibold text-slate-200">{title}</h3>
-            <p class="text-sm leading-relaxed text-slate-500">{description}</p>
+            <h3 class="mb-2 text-sm font-semibold text-tined-blue">{title}</h3>
+            <p class="text-sm leading-relaxed text-deep-gray">{description}</p>
           </article>
         ))
       }

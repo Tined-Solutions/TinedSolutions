@@ -2,28 +2,28 @@
 const email = "tinedsolutions@gmail.com";
 ---
 
-<section id="contact" class="border-t border-slate-800 py-24 px-6">
+<section id="contact" class="reveal-on-scroll border-t border-elegance-gold/35 py-24 px-6">
   <div class="mx-auto max-w-6xl">
     <div class="grid gap-16 lg:grid-cols-2">
       <div>
-        <p class="mb-3 text-xs font-medium uppercase tracking-widest text-slate-500">
+        <p class="mb-3 text-xs font-medium uppercase tracking-widest text-elegance-gold">
           Contacto
         </p>
-        <h2 class="mb-6 text-3xl font-light leading-snug text-slate-100 sm:text-4xl">
+        <h2 class="mb-6 text-3xl font-light leading-snug text-tined-blue sm:text-4xl">
           Hablemos de su <br />
           <span class="font-semibold">próximo proyecto.</span>
         </h2>
-        <p class="mb-8 text-sm leading-relaxed text-slate-400">
+        <p class="mb-8 text-sm leading-relaxed text-deep-gray">
           ¿Tiene una idea en mente? ¿Necesita escalar su producto? Estamos listos para escucharle y proponer la mejor solución.
         </p>
 
         <div class="flex flex-col gap-3">
-          <p class="text-xs font-medium uppercase tracking-widest text-slate-600">
+          <p class="text-xs font-medium uppercase tracking-widest text-deep-gray">
             Correo electrónico
           </p>
           <a
             href={`mailto:${email}`}
-            class="text-sm text-slate-300 underline underline-offset-4 transition-colors hover:text-slate-100"
+            class="text-sm text-tined-blue underline underline-offset-4 transition-colors hover:text-elegance-gold"
           >
             {email}
           </a>
@@ -32,11 +32,11 @@ const email = "tinedsolutions@gmail.com";
 
       <form
         id="contact-form"
-        class="flex flex-col gap-5"
+        class="futuristic-card reveal-on-scroll flex flex-col gap-5 rounded-xl border border-elegance-gold/35 p-6"
         novalidate
       >
         <div>
-          <label for="name" class="mb-1.5 block text-xs font-medium uppercase tracking-wider text-slate-500">
+          <label for="name" class="mb-1.5 block text-xs font-medium uppercase tracking-wider text-elegance-gold">
             Nombre
           </label>
           <input
@@ -46,12 +46,12 @@ const email = "tinedsolutions@gmail.com";
             required
             autocomplete="name"
             placeholder="Su nombre completo"
-            class="w-full rounded border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-200 placeholder-slate-600 outline-none transition-colors focus:border-slate-500 focus:ring-0"
+            class="futuristic-input w-full rounded border border-elegance-gold/40 bg-cream px-4 py-3 text-sm text-deep-gray placeholder-deep-gray/70 outline-none transition-colors focus:border-tined-blue focus:ring-0"
           />
         </div>
 
         <div>
-          <label for="email" class="mb-1.5 block text-xs font-medium uppercase tracking-wider text-slate-500">
+          <label for="email" class="mb-1.5 block text-xs font-medium uppercase tracking-wider text-elegance-gold">
             Correo electrónico
           </label>
           <input
@@ -61,12 +61,12 @@ const email = "tinedsolutions@gmail.com";
             required
             autocomplete="email"
             placeholder="su@correo.com"
-            class="w-full rounded border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-200 placeholder-slate-600 outline-none transition-colors focus:border-slate-500 focus:ring-0"
+            class="futuristic-input w-full rounded border border-elegance-gold/40 bg-cream px-4 py-3 text-sm text-deep-gray placeholder-deep-gray/70 outline-none transition-colors focus:border-tined-blue focus:ring-0"
           />
         </div>
 
         <div>
-          <label for="subject" class="mb-1.5 block text-xs font-medium uppercase tracking-wider text-slate-500">
+          <label for="subject" class="mb-1.5 block text-xs font-medium uppercase tracking-wider text-elegance-gold">
             Asunto
           </label>
           <input
@@ -75,12 +75,12 @@ const email = "tinedsolutions@gmail.com";
             type="text"
             required
             placeholder="¿En qué podemos ayudarle?"
-            class="w-full rounded border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-200 placeholder-slate-600 outline-none transition-colors focus:border-slate-500 focus:ring-0"
+            class="futuristic-input w-full rounded border border-elegance-gold/40 bg-cream px-4 py-3 text-sm text-deep-gray placeholder-deep-gray/70 outline-none transition-colors focus:border-tined-blue focus:ring-0"
           />
         </div>
 
         <div>
-          <label for="message" class="mb-1.5 block text-xs font-medium uppercase tracking-wider text-slate-500">
+          <label for="message" class="mb-1.5 block text-xs font-medium uppercase tracking-wider text-elegance-gold">
             Mensaje
           </label>
           <textarea
@@ -89,7 +89,7 @@ const email = "tinedsolutions@gmail.com";
             rows="4"
             required
             placeholder="Cuéntenos sobre su proyecto..."
-            class="w-full resize-none rounded border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-200 placeholder-slate-600 outline-none transition-colors focus:border-slate-500 focus:ring-0"
+            class="futuristic-input w-full resize-none rounded border border-elegance-gold/40 bg-cream px-4 py-3 text-sm text-deep-gray placeholder-deep-gray/70 outline-none transition-colors focus:border-tined-blue focus:ring-0"
           ></textarea>
         </div>
 
@@ -98,7 +98,7 @@ const email = "tinedsolutions@gmail.com";
         <button
           type="submit"
           id="submit-btn"
-          class="flex items-center justify-center gap-2 rounded bg-slate-100 px-6 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+          class="glow-button-primary flex items-center justify-center gap-2 rounded bg-tined-blue px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-tined-blue/90 disabled:cursor-not-allowed disabled:opacity-60"
         >
           <span id="submit-text">Enviar mensaje</span>
         </button>
@@ -149,14 +149,29 @@ const email = "tinedsolutions@gmail.com";
     setLoading(true);
     formMessage.classList.add("hidden");
 
-    // Simula envío del formulario (integrar con servicio de backend o API en producción)
-    await new Promise<void>((resolve) => setTimeout(resolve, 1200));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
 
-    setLoading(false);
-    showMessage(
-      "¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.",
-      true
-    );
-    form.reset();
+      const data = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        showMessage(data.message ?? "No se pudo enviar el mensaje.", false);
+        return;
+      }
+
+      showMessage(
+        "¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.",
+        true
+      );
+      form.reset();
+    } catch {
+      showMessage("Ocurrió un error de red. Intente nuevamente.", false);
+    } finally {
+      setLoading(false);
+    }
   });
 </script>

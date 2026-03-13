@@ -2,13 +2,13 @@
 import { developers } from "../data/developers";
 ---
 
-<section id="team" class="border-t border-slate-800 py-24 px-6">
+<section id="team" class="reveal-on-scroll border-t border-elegance-gold/35 py-24 px-6">
   <div class="mx-auto max-w-6xl">
     <div class="mb-16 max-w-xl">
-      <p class="mb-3 text-xs font-medium uppercase tracking-widest text-slate-500">
+      <p class="mb-3 text-xs font-medium uppercase tracking-widest text-elegance-gold">
         El equipo
       </p>
-      <h2 class="text-3xl font-light leading-snug text-slate-100 sm:text-4xl">
+      <h2 class="text-3xl font-light leading-snug text-tined-blue sm:text-4xl">
         Las personas detrás <br />
         <span class="font-semibold">del código.</span>
       </h2>
@@ -17,15 +17,15 @@ import { developers } from "../data/developers";
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {
         developers.map(({ name, role, bio, initials }) => (
-          <article class="border border-slate-800 p-6 transition-colors hover:border-slate-600">
-            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded border border-slate-700 text-sm font-semibold text-slate-300">
+          <article class="futuristic-card reveal-on-scroll border border-elegance-gold/35 p-6 transition-colors hover:border-elegance-gold">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded border border-elegance-gold text-sm font-semibold text-tined-blue">
               {initials}
             </div>
-            <h3 class="mb-1 text-base font-semibold text-slate-100">{name}</h3>
-            <p class="mb-3 text-xs font-medium uppercase tracking-wider text-slate-500">
+            <h3 class="mb-1 text-base font-semibold text-tined-blue">{name}</h3>
+            <p class="mb-3 text-xs font-medium uppercase tracking-wider text-elegance-gold">
               {role}
             </p>
-            <p class="text-sm leading-relaxed text-slate-500">{bio}</p>
+            <p class="text-sm leading-relaxed text-deep-gray">{bio}</p>
           </article>
         ))
       }

@@ -1,0 +1,21 @@
+
+> tined-solutions@0.0.1 build
+> astro build
+
+[2m19:05:59[22m [34m[@astrojs/cloudflare][39m Enabling image processing with Cloudflare Images for production with the "IMAGES" Images binding.
+[2m19:05:59[22m [34m[@astrojs/cloudflare][39m Enabling sessions with Cloudflare KV with the "SESSION" KV binding.
+[2m19:06:12[22m [34m[types][39m Generated [2m12.45s[22m
+[2m19:06:12[22m [34m[build][39m output: [34m"server"[39m
+[2m19:06:12[22m [34m[build][39m mode: [34m"server"[39m
+[2m19:06:12[22m [34m[build][39m directory: [34mD:\Martin\Escritorio\TinedSolutions\dist\[39m
+[2m19:06:12[22m [34m[build][39m adapter: [32m@astrojs/cloudflare[39m
+[2m19:06:12[22m [34m[build][39m Collecting build info...
+[2m19:06:12[22m [34m[build][39m [32mÔ£ô Completed in 12.76s.[39m
+[2m19:06:12[22m [34m[build][39m Building server entrypoints...
+[2m19:06:28[22m [34m[vite][39m [32mÔ£ô built in 15.94s[39m
+[2m19:06:38[22m [34m[vite][39m [32mÔ£ô built in 9.52s[39m
+[2m19:06:38[22m [34m[vite][39m [32mÔ£ô built in 428ms[39m
+[2m19:06:39[22m [34m[build][39m Rearranging server assets...
+[2m19:06:39[22m [34m[build][39m [32mÔ£ô Completed in 26.49s.[39m
+[2m19:06:39[22m [34m[build][39m Server built in [1m39.37s[22m
+[2m19:06:39[22m [34m[build][39m [1mComplete![22m
