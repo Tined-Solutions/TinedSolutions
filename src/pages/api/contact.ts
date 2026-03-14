@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { env } from "cloudflare:workers";
 import {
   buildEmailHtml,
   sanitizeContactInput,
@@ -19,14 +20,13 @@ interface ContactRuntimeEnv {
   CONTACT_FROM_EMAIL?: string;
 }
 
-function getRuntimeEnv(locals: Parameters<APIRoute>[0]["locals"]): ContactRuntimeEnv {
-  const runtime = (locals as { runtime?: { env?: ContactRuntimeEnv } }).runtime;
-  return runtime?.env ?? {};
+function getRuntimeEnv(): ContactRuntimeEnv {
+  return env as ContactRuntimeEnv;
 }
 
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
-    const runtimeEnv = getRuntimeEnv(locals);
+    const runtimeEnv = getRuntimeEnv();
     const resendApiKey = runtimeEnv.RESEND_API_KEY ?? import.meta.env.RESEND_API_KEY;
     const toEmail =
       runtimeEnv.CONTACT_TO_EMAIL ??
@@ -106,9 +106,15 @@ export const POST: APIRoute = async ({ request, locals }) => {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
-  } catch {
+  } catch (error) {
+    const details = error instanceof Error ? error.message : String(error);
+    console.error("[api/contact] Error inesperado:", error);
+
     return new Response(
-      JSON.stringify({ message: "Error interno procesando el formulario de contacto." }),
+      JSON.stringify({
+        message: "Error interno procesando el formulario de contacto.",
+        ...(import.meta.env.DEV ? { details } : {}),
+      }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
