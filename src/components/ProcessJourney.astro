@@ -1,0 +1,48 @@
+---
+import { processSteps } from "../data/processSteps";
+---
+
+<section id="proceso" class="reveal-on-scroll px-6 pt-6 pb-24 md:pt-10 md:pb-32">
+  <div class="mx-auto max-w-6xl">
+    <div class="prose-content mb-16 max-w-2xl">
+      <p class="mb-3 text-xs font-medium uppercase tracking-widest text-elegance-gold">
+        Cómo trabajamos
+      </p>
+      <h2 class="font-tanker text-4xl leading-none text-tined-blue sm:text-5xl">
+        Del primer mensaje a una <br />
+        <span class="text-elegance-gold">solución real.</span>
+      </h2>
+    </div>
+
+    <ol class="relative space-y-10 before:absolute before:top-0 before:left-[6px] md:before:left-1/2 before:h-full before:w-px before:-translate-x-1/2 before:rounded-full before:bg-elegance-gold/35">
+      {
+        processSteps.map(({ stepLabel, title, description, isFinal }, index) => (
+          <li class="group relative grid gap-6 md:grid-cols-2">
+            <div class:list={[
+              "relative flex items-start gap-4",
+              index % 2 === 0 ? "md:text-right md:flex-row-reverse" : "md:order-last",
+            ]}>
+              <span
+                class:list={[
+                  "mt-2 size-3 shrink-0 rounded-full bg-tined-blue shadow-[0_0_10px_color-mix(in_srgb,var(--color-tined-blue)_45%,transparent)]",
+                  isFinal && "size-4 ring-4 ring-elegance-gold/30",
+                ]}
+              ></span>
+
+              <div class="-mt-1 max-w-md">
+                <time class="text-xs font-bold uppercase tracking-wide text-elegance-gold">
+                  {stepLabel}
+                </time>
+
+                <h3 class="font-tanker mt-1 text-2xl tracking-wide text-tined-blue">{title}</h3>
+
+                <p class="mt-2 text-sm leading-relaxed text-deep-gray">{description}</p>
+              </div>
+            </div>
+            <div aria-hidden="true"></div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

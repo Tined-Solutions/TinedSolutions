@@ -3,25 +3,22 @@ export interface Developer {
   role: string;
   bio: string;
   initials: string;
+  linkedin: string;
 }
 
 export const developers: Developer[] = [
   {
-    name: "Carlos Mendez",
-    role: "Full Stack Developer",
-    bio: "Especialista en arquitecturas escalables y soluciones cloud. Más de 6 años construyendo productos digitales robustos.",
-    initials: "CM",
+    name: "Martín Lima",
+    role: "Co-Founder & Software Engineer",
+    bio: "Enfocado en producto digital, arquitectura y ejecución técnica de punta a punta para entregar software claro, veloz y sostenible.",
+    initials: "ML",
+    linkedin: "https://www.linkedin.com/in/mart%C3%ADn-sebasti%C3%A1n-lima-4361572a7/",
   },
   {
-    name: "Ana Torres",
-    role: "Frontend Engineer",
-    bio: "Experta en interfaces de usuario accesibles y experiencias web de alto rendimiento con enfoque en diseño minimalista.",
-    initials: "AT",
-  },
-  {
-    name: "Luis Herrera",
-    role: "Backend Developer",
-    bio: "Apasionado por las APIs limpias y los sistemas distribuidos. Experiencia sólida en bases de datos y optimización.",
-    initials: "LH",
+    name: "Edgardo Del Real",
+    role: "Co-Founder & Software Engineer",
+    bio: "Especialista en soluciones robustas para negocio, con foco en calidad de código, rendimiento y experiencia de usuario moderna.",
+    initials: "ER",
+    linkedin: "https://www.linkedin.com/in/edgardo-del-real/",
   },
 ];

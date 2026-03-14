@@ -1,38 +1,59 @@
 ---
+import BlockReveal from "./BlockReveal.tsx";
 ---
 
-<section class="reveal-on-scroll is-visible relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-20">
+<section class="reveal-on-scroll is-visible relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-24 pb-12">
   <div class="hero-float pointer-events-none absolute -left-10 top-28 h-52 w-52 rounded-full bg-tined-blue/12 blur-3xl"></div>
   <div class="hero-float pointer-events-none absolute -right-8 bottom-24 h-48 w-48 rounded-full bg-elegance-gold/20 blur-3xl"></div>
 
-  <div class="relative mx-auto max-w-3xl text-center">
-    <p class="mb-6 text-xs font-medium uppercase tracking-widest text-elegance-gold">
-      Desarrollo de software
-    </p>
+  <div class="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:flex-row-reverse items-center justify-between gap-12 lg:gap-16">
+    
+    {/* Text Section -> Right on Desktop, Top on Mobile */}
+    <div class="flex-1 text-center lg:text-left">
+      <BlockReveal client:load delay={0.1}>
+        <p class="mb-4 text-xs font-medium uppercase tracking-widest text-elegance-gold">
+          Desarrollo de software
+        </p>
+      </BlockReveal>
 
-    <h1 class="mb-6 text-5xl font-light leading-tight tracking-tight text-tined-blue sm:text-6xl lg:text-7xl">
-      Código que <br />
-      <em class="font-semibold not-italic text-elegance-gold">funciona</em> y <br />
-      <em class="font-semibold not-italic text-elegance-gold">perdura</em>.
-    </h1>
+      <BlockReveal client:load delay={0.3}>
+        <h1 class="font-tanker mb-6 text-6xl leading-[0.95] tracking-[0.02em] text-tined-blue sm:text-7xl lg:text-[6.5rem]">
+          Código que <br />
+          <span class="text-elegance-gold">funciona</span> y <br />
+          <span class="text-elegance-gold">perdura</span>.
+        </h1>
+      </BlockReveal>
 
-    <p class="mx-auto mb-10 max-w-xl text-base leading-relaxed text-deep-gray">
-      Construimos soluciones digitales con precisión y claridad. Sin complejidad innecesaria, sin adornos superfluos. Solo software que resuelve problemas reales.
-    </p>
+      <BlockReveal client:load delay={0.5} duration={0.6}>
+        <p class="mx-auto lg:mx-0 mb-8 max-w-xl text-lg sm:text-xl font-light leading-relaxed text-deep-gray">
+          Construimos soluciones digitales con precisión y claridad. Sin complejidad innecesaria, sin adornos superfluos. Solo software que resuelve problemas reales.
+        </p>
+      </BlockReveal>
 
-    <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-      <a
-        href="#portfolio"
-        class="glow-button-primary rounded bg-tined-blue px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-tined-blue/90"
-      >
-        Ver nuestro trabajo
-      </a>
-      <a
-        href="#contact"
-        class="glow-button-secondary rounded border border-elegance-gold px-6 py-3 text-sm font-medium text-tined-blue transition-colors hover:bg-elegance-gold/10"
-      >
-        Contáctenos
-      </a>
+      <BlockReveal client:load delay={0.7} className="mx-auto lg:mx-0">
+        <div class="flex flex-col items-center justify-center lg:justify-start gap-4 sm:flex-row">
+          <a
+            href="#portfolio"
+            class="glow-button-primary rounded bg-tined-blue px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-tined-blue/90"
+          >
+            Ver nuestro trabajo
+          </a>
+          <a
+            href="#contact"
+            class="glow-button-secondary rounded border border-elegance-gold px-6 py-3 text-sm font-medium text-tined-blue transition-colors hover:bg-elegance-gold/10"
+          >
+            Contáctenos
+          </a>
+        </div>
+      </BlockReveal>
     </div>
+
+    {/* Logo Section -> Left on Desktop, Bottom on Mobile */}
+    <div class="flex-1 flex justify-center lg:justify-start w-full max-w-sm lg:max-w-md">
+      <BlockReveal client:load delay={0.4} blockColor="#2c3e50">
+        <img src="/logo.webp" alt="Tined Solutions Logo" class="w-full h-auto object-contain drop-shadow-2xl" />
+      </BlockReveal>
+    </div>
+
   </div>
 </section>

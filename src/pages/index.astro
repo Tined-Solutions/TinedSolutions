@@ -4,13 +4,21 @@ import Hero from "../components/Hero.astro";
 import WhyUs from "../components/WhyUs.astro";
 import Team from "../components/Team.astro";
 import Portfolio from "../components/Portfolio.astro";
+import ProcessJourney from "../components/ProcessJourney.astro";
 import Contact from "../components/Contact.astro";
+import SectionSeparator from "../components/SectionSeparator";
 ---
 
 <BaseLayout>
   <Hero />
+  <SectionSeparator client:visible text="¿Qué nos hace únicos?" />
   <WhyUs />
+  <SectionSeparator client:visible text="¿Quiénes están detrás del código?" />
   <Team />
+  <SectionSeparator client:visible text="¿Qué hemos logrado?" />
   <Portfolio />
+  <SectionSeparator client:visible text="¿Cómo convertimos ideas en realidad?" />
+  <ProcessJourney />
+  <SectionSeparator client:visible text="¿Listo para dar el próximo paso?" />
   <Contact />
 </BaseLayout>

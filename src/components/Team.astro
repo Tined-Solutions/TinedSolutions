@@ -2,15 +2,15 @@
 import { developers } from "../data/developers";
 ---
 
-<section id="team" class="reveal-on-scroll border-t border-elegance-gold/35 py-24 px-6">
+<section id="team" class="reveal-on-scroll px-6 pt-6 pb-24 md:pt-10 md:pb-32">
   <div class="mx-auto max-w-6xl">
     <div class="mb-16 max-w-xl">
       <p class="mb-3 text-xs font-medium uppercase tracking-widest text-elegance-gold">
         El equipo
       </p>
-      <h2 class="text-3xl font-light leading-snug text-tined-blue sm:text-4xl">
+      <h2 class="font-tanker text-4xl leading-none text-tined-blue sm:text-5xl">
         Las personas detrás <br />
-        <span class="font-semibold">del código.</span>
+        <span class="text-elegance-gold">del código.</span>
       </h2>
     </div>
 
@@ -18,10 +18,10 @@ import { developers } from "../data/developers";
       {
         developers.map(({ name, role, bio, initials }) => (
           <article class="futuristic-card reveal-on-scroll border border-elegance-gold/35 p-6 transition-colors hover:border-elegance-gold">
-            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded border border-elegance-gold text-sm font-semibold text-tined-blue">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded border border-elegance-gold text-lg font-tanker text-tined-blue">
               {initials}
             </div>
-            <h3 class="mb-1 text-base font-semibold text-tined-blue">{name}</h3>
+            <h3 class="font-tanker mb-1 text-2xl tracking-wide text-tined-blue">{name}</h3>
             <p class="mb-3 text-xs font-medium uppercase tracking-wider text-elegance-gold">
               {role}
             </p>

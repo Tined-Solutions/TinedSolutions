@@ -1,11 +1,13 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-tined-blue: #2c3e50;
   --color-elegance-gold: #b1976b;
   --color-deep-gray: #424949;
   --color-cream: #f4f4ee;
-  --font-sans: "Inter", "system-ui", sans-serif;
+  --font-sans: "Space Grotesk", "system-ui", sans-serif;
+  --font-tanker: "Tanker", "system-ui", sans-serif;
 }
 
 html {
@@ -64,14 +66,21 @@ body::after {
 }
 
 main,
-header,
 footer {
   position: relative;
   z-index: 1;
 }
 
 .futuristic-nav {
-  box-shadow: 0 8px 28px color-mix(in srgb, var(--color-tined-blue) 8%, transparent);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-tined-blue) 10%, transparent);
+}
+
+header.futuristic-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 120;
 }
 
 .glow-link {
@@ -86,9 +95,9 @@ footer {
   width: 100%;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-elegance-gold), transparent);
-  transform: scaleX(0.15);
+  transform: scaleX(0.24);
   opacity: 0;
-  transition: transform 260ms ease, opacity 260ms ease;
+  transition: transform 300ms cubic-bezier(0.2, 0.65, 0.3, 1), opacity 300ms ease;
 }
 
 .glow-link:hover::after {
@@ -103,42 +112,294 @@ footer {
     color-mix(in srgb, var(--color-cream) 68%, var(--color-tined-blue) 5%)
   );
   backdrop-filter: blur(2px);
-  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  box-shadow: 0 3px 10px color-mix(in srgb, var(--color-tined-blue) 7%, transparent);
+  transition: transform 300ms cubic-bezier(0.2, 0.65, 0.3, 1), box-shadow 300ms ease,
+    border-color 300ms ease, background 300ms ease;
 }
 
 .futuristic-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 32px color-mix(in srgb, var(--color-tined-blue) 18%, transparent);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 14px 26px color-mix(in srgb, var(--color-tined-blue) 14%, transparent);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--color-cream) 92%, transparent),
+    color-mix(in srgb, var(--color-cream) 70%, var(--color-elegance-gold) 8%)
+  );
 }
 
 .glow-button-primary {
+  position: relative;
+  overflow: hidden;
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-elegance-gold) 35%, transparent),
-    0 10px 24px color-mix(in srgb, var(--color-tined-blue) 26%, transparent);
+    0 8px 20px color-mix(in srgb, var(--color-tined-blue) 18%, transparent);
+  transition: transform 300ms cubic-bezier(0.2, 0.65, 0.3, 1), box-shadow 300ms ease,
+    background-color 300ms ease;
+}
+
+.glow-button-primary::after,
+.glow-button-secondary::after,
+.linkedin-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(110deg, transparent 25%, color-mix(in srgb, white 42%, transparent) 50%, transparent 75%);
+  transition: transform 520ms ease;
+  pointer-events: none;
+}
+
+.glow-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-elegance-gold) 48%, transparent),
+    0 12px 26px color-mix(in srgb, var(--color-tined-blue) 22%, transparent);
+}
+
+.glow-button-primary:active,
+.glow-button-secondary:active,
+.linkedin-button:active {
+  transform: translateY(0) scale(0.99);
 }
 
 .glow-button-secondary {
+  position: relative;
+  overflow: hidden;
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-elegance-gold) 45%, transparent),
     inset 0 0 0 1px color-mix(in srgb, var(--color-elegance-gold) 22%, transparent);
+  transition: transform 300ms cubic-bezier(0.2, 0.65, 0.3, 1), box-shadow 300ms ease,
+    background-color 300ms ease;
+}
+
+.glow-button-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-elegance-gold) 60%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--color-elegance-gold) 32%, transparent),
+    0 8px 18px color-mix(in srgb, var(--color-tined-blue) 12%, transparent);
 }
 
 .futuristic-input {
   box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-cream) 50%, white);
 }
 
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(22px) scale(0.99);
-  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.65, 0.3, 1);
-  will-change: transform, opacity;
+.logo-showcase {
+  transition: transform 380ms cubic-bezier(0.2, 0.65, 0.3, 1);
 }
 
-.reveal-on-scroll.is-visible {
+.logo-showcase:hover {
+  transform: translateY(-4px);
+}
+
+.logo-interactive {
+  transition: transform 460ms cubic-bezier(0.2, 0.65, 0.3, 1), filter 460ms ease;
+  will-change: transform, filter;
+  animation: logo-breathe 7s ease-in-out infinite;
+}
+
+.logo-showcase:hover .logo-interactive {
+  transform: scale(1.04) rotate(0.8deg);
+  filter: saturate(1.08) contrast(1.05);
+}
+
+.logo-orb {
+  filter: blur(22px);
+  opacity: 0.7;
+  transition: transform 420ms ease, opacity 420ms ease;
+}
+
+.logo-orb-gold {
+  background: color-mix(in srgb, var(--color-elegance-gold) 36%, transparent);
+  animation: logo-orb-drift 9s ease-in-out infinite;
+}
+
+.logo-orb-blue {
+  background: color-mix(in srgb, var(--color-tined-blue) 30%, transparent);
+  animation: logo-orb-drift 10s ease-in-out infinite reverse;
+}
+
+.logo-showcase:hover .logo-orb {
+  transform: scale(1.12);
+  opacity: 0.9;
+}
+
+.linkedin-button {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-elegance-gold) 35%, transparent),
+    0 6px 16px color-mix(in srgb, var(--color-tined-blue) 10%, transparent);
+  transition: transform 240ms cubic-bezier(0.2, 0.65, 0.3, 1), box-shadow 240ms ease,
+    background-color 240ms ease;
+}
+
+.linkedin-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-elegance-gold) 55%, transparent),
+    0 10px 20px color-mix(in srgb, var(--color-tined-blue) 14%, transparent);
+}
+
+.glow-button-primary:hover::after,
+.glow-button-secondary:hover::after,
+.linkedin-button:hover::after {
+  transform: translateX(120%);
+}
+
+.interactive-hover-cta {
+  background: color-mix(in srgb, var(--color-cream) 96%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-elegance-gold) 35%, transparent),
+    0 8px 16px color-mix(in srgb, var(--color-tined-blue) 12%, transparent);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.interactive-hover-cta:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--color-elegance-gold) 65%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-elegance-gold) 55%, transparent),
+    0 12px 22px color-mix(in srgb, var(--color-tined-blue) 16%, transparent);
+}
+
+.interactive-hover-cta-bg {
+  z-index: 0;
+  opacity: 0.75;
+}
+
+.interactive-hover-cta:hover .interactive-hover-cta-bg {
   opacity: 1;
-  transform: translateY(0) scale(1);
+}
+
+.interactive-hover-cta-text,
+.interactive-hover-cta-reveal {
+  position: relative;
+  z-index: 1;
+}
+
+.floating-field-input:focus + .floating-field-label,
+.floating-field-input:not(:placeholder-shown) + .floating-field-label {
+  top: 0;
+  font-size: 0.75rem;
+  transform: translateY(-50%);
+  color: var(--color-elegance-gold);
+}
+
+.floating-field-input-textarea:focus + .floating-field-label-textarea,
+.floating-field-input-textarea:not(:placeholder-shown) + .floating-field-label-textarea {
+  top: 0;
+  font-size: 0.75rem;
+  transform: translateY(-50%);
+  color: var(--color-elegance-gold);
+}
+
+.mobile-menu-overlay {
+  background: color-mix(in srgb, var(--color-tined-blue) 55%, transparent);
+  z-index: 130;
+}
+
+.mobile-menu-panel {
+  background: color-mix(in srgb, var(--color-cream) 98%, transparent);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--color-tined-blue) 10%, transparent);
+  z-index: 140;
+}
+
+.mobile-menu-link {
+  color: var(--color-tined-blue);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.mobile-menu-link:hover {
+  background: color-mix(in srgb, var(--color-elegance-gold) 10%, transparent);
+  color: var(--color-tined-blue);
+  transform: translateX(3px);
+}
+
+.mobile-menu-cta {
+  background: var(--color-tined-blue);
+}
+
+.mobile-menu-trigger {
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  z-index: 150;
+}
+
+.mobile-menu-trigger:hover {
+  border-color: color-mix(in srgb, var(--color-elegance-gold) 75%, transparent);
+  box-shadow: 0 8px 16px color-mix(in srgb, var(--color-tined-blue) 14%, transparent);
+}
+
+.hamburger-line {
+  position: absolute;
+  width: 1.25rem;
+  height: 1px;
+  background: var(--color-tined-blue);
+  transition: transform 160ms ease, opacity 120ms ease, width 160ms ease;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+.hamburger-line:nth-child(1) {
+  transform: translateY(-5px);
+}
+
+.hamburger-line:nth-child(2) {
+  transform: translateY(0);
+}
+
+.hamburger-line:nth-child(3) {
+  width: 0.95rem;
+  transform: translateY(5px);
+}
+
+.hamburger-line-top-open {
+  transform: translateY(0) rotate(45deg) !important;
+}
+
+.hamburger-line-middle-open {
+  opacity: 0;
+}
+
+.hamburger-line-bottom-open {
+  width: 1.25rem !important;
+  transform: translateY(0) rotate(-45deg) !important;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+    filter: blur(8px);
+    transform: translateY(20px) scale(0.98);
+    transition:
+      opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+      filter 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity, filter;
+  }
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+.prose-content {
+  @apply prose prose-slate max-w-none prose-p:text-deep-gray prose-p:leading-relaxed prose-headings:text-tined-blue prose-strong:text-tined-blue prose-a:text-elegance-gold hover:prose-a:text-tined-blue;
 }
 
 .hero-float {
   animation: hero-float 6s ease-in-out infinite;
+}
+
+.hero-title {
+    font-family: var(--font-tanker);
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.hero-title span {
+  display: inline-block;
+}
+
+.hero-title-accent {
+  margin-inline: 0.25rem;
 }
 
 @keyframes drift-grid {
@@ -169,10 +430,32 @@ footer {
   }
 }
 
+@keyframes logo-breathe {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.015) rotate(0.4deg);
+  }
+}
+
+@keyframes logo-orb-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0) scale(1.08);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   body::before,
   body::after,
-  .hero-float {
+  .hero-float,
+  .logo-showcase,
+  .logo-interactive {
     animation: none;
   }
 
@@ -180,5 +463,69 @@ footer {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .logo-showcase:hover,
+  .logo-showcase:hover .logo-interactive {
+    transform: none;
+    filter: none;
+  }
+
+  .logo-orb,
+  .logo-interactive {
+    animation: none;
+  }
+
+  .glow-button-primary::after,
+  .glow-button-secondary::after,
+  .linkedin-button::after {
+    content: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  #why-us > div,
+  #portfolio > div,
+  #contact > div {
+    transform: translateX(20px);
+  }
+}
+
+::view-transition-old(root) {
+  animation: page-out 220ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
+}
+
+::view-transition-new(root) {
+  animation: page-in 320ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
+}
+
+@keyframes page-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.995);
+    filter: blur(2px);
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(1.005);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
