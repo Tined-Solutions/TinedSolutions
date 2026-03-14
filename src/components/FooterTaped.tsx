@@ -12,82 +12,81 @@ export default function Footer() {
   const email = "tinedsolutions@gmail.com";
 
   return (
-    <footer className="relative mt-20 px-4 max-w-6xl mx-auto pb-10">
-      <div className="relative overflow-hidden bg-cream rounded-3xl border border-elegance-gold/30 px-6 py-12 md:py-16 shadow-xl">
-        {/* Taped Design Accents */}
-        <div className="hidden md:block absolute -top-4 -left-6 scale-75 rotate-[-5deg] opacity-80">
+    <footer className="relative mt-12 px-4 max-w-5xl mx-auto pb-8">
+      <div className="relative bg-cream rounded-3xl border border-elegance-gold/20 px-6 py-8 md:py-10 shadow-lg">
+        {/* Taped Design Accents - Ajustados para mobile para que sostengan el borde */}
+        <div className="absolute -top-6 -left-6 md:-top-7 md:-left-7 scale-75 md:scale-75 rotate-[-12deg] opacity-80 z-20 pointer-events-none">
           {tape}
         </div>
-        <div className="hidden md:block absolute -top-4 -right-6 scale-75 rotate-[85deg] opacity-80">
+        <div className="absolute -top-6 -right-6 md:-top-7 md:-right-7 scale-75 md:scale-75 rotate-[78deg] opacity-80 z-20 pointer-events-none">
           {tape}
         </div>
 
-        <div className="relative z-10 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-16 px-4">
-          <div className="flex flex-col items-start gap-6 max-w-md">
-            <a href="/" className="text-3xl font-tanker tracking-wider text-tined-blue">
-              Tined<span className="text-elegance-gold">Solutions</span>
-            </a>
-            <p className="text-deep-gray/80 font-light text-lg leading-relaxed">
-              Transformamos la complejidad técnica en soluciones digitales claras y potentes. Tu próximo gran paso empieza aquí.
+        <div className="relative z-10 flex flex-col md:flex-row justify-between items-center md:items-center gap-10 md:gap-16 px-4">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6 max-w-md order-2 md:order-1">
+            <p className="text-deep-gray/80 font-light text-lg md:text-xl leading-relaxed">
+              Gracias por tu tiempo. Si quieres saber más sobre nosotros o tienes alguna pregunta, no dudes en contactarnos.
             </p>
-            <div className="flex gap-4 items-center">
-              <a
-                href="https://www.linkedin.com/in/edgardo-del-real/"
-                target="_blank"
-                rel="nofollow noopener"
-                className="group flex h-10 w-10 items-center justify-center rounded-full border border-elegance-gold/30 transition-all hover:bg-tined-blue hover:border-tined-blue"
-                title="LinkedIn Edgardo Del Real"
-              >
-                <Linkedin className="w-5 h-5 text-tined-blue group-hover:text-cream" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mart%C3%ADn-sebasti%C3%A1n-lima-4361572a7/"
-                target="_blank"
-                rel="nofollow noopener"
-                className="group flex h-10 w-10 items-center justify-center rounded-full border border-elegance-gold/30 transition-all hover:bg-tined-blue hover:border-tined-blue"
-                title="LinkedIn Martín Lima"
-              >
-                <Linkedin className="w-5 h-5 text-tined-blue group-hover:text-cream" />
-              </a>
-              <a
-                href={`mailto:${email}`}
-                className="group flex h-10 w-10 items-center justify-center rounded-full border border-elegance-gold/30 transition-all hover:bg-tined-blue hover:border-tined-blue"
-              >
-                <Mail className="w-5 h-5 text-tined-blue group-hover:text-cream" />
-              </a>
+            
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-6 mt-2">
+              <div className="flex flex-col items-center gap-2">
+                <a
+                  href="https://www.linkedin.com/in/edgardo-del-real/"
+                  target="_blank"
+                  rel="nofollow noopener"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-elegance-gold/30 transition-all hover:bg-tined-blue hover:border-tined-blue shadow-sm"
+                  title="LinkedIn Edgardo Del Real"
+                >
+                  <Linkedin className="w-5 h-5 text-tined-blue group-hover:text-cream" />
+                </a>
+                <span className="text-[10px] uppercase tracking-widest text-elegance-gold font-bold">Edgardo</span>
+              </div>
+
+              <div className="flex flex-col items-center gap-2">
+                <a
+                  href={`mailto:${email}`}
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-elegance-gold/30 transition-all hover:bg-tined-blue hover:border-tined-blue shadow-sm"
+                  title="Contactar vía Email"
+                >
+                  <Mail className="w-5 h-5 text-tined-blue group-hover:text-cream" />
+                </a>
+                <span className="text-[10px] uppercase tracking-widest text-tined-blue/60 font-bold">Email</span>
+              </div>
+
+              <div className="flex flex-col items-center gap-2">
+                <a
+                  href="https://www.linkedin.com/in/mart%C3%ADn-sebasti%C3%A1n-lima-4361572a7/"
+                  target="_blank"
+                  rel="nofollow noopener"
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-elegance-gold/30 transition-all hover:bg-tined-blue hover:border-tined-blue shadow-sm"
+                  title="LinkedIn Martín Lima"
+                >
+                  <Linkedin className="w-5 h-5 text-tined-blue group-hover:text-cream" />
+                </a>
+                <span className="text-[10px] uppercase tracking-widest text-elegance-gold font-bold">Martín</span>
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-12 md:gap-24">
-            <div className="flex flex-col gap-6">
-              <h4 className="uppercase font-tanker text-sm tracking-widest text-elegance-gold">Navegación</h4>
-              <div className="flex flex-col gap-3 text-sm font-medium">
-                <a className="text-deep-gray/60 hover:text-tined-blue transition-colors" href="#why-us">Nosotros</a>
-                <a className="text-deep-gray/60 hover:text-tined-blue transition-colors" href="#team">Equipo</a>
-                <a className="text-deep-gray/60 hover:text-tined-blue transition-colors" href="#portfolio">Trabajos</a>
-                <a className="text-deep-gray/60 hover:text-tined-blue transition-colors" href="#contact">Contacto</a>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <h4 className="uppercase font-tanker text-sm tracking-widest text-elegance-gold">Especialidad</h4>
-              <div className="flex flex-col gap-3 text-sm font-medium">
-                <span className="text-deep-gray/60">Software a Medida</span>
-                <span className="text-deep-gray/60">Plataformas E-Commerce</span>
-                <span className="text-deep-gray/60">SaaS Development</span>
-                <span className="text-deep-gray/60">Arquitectura de Sistemas</span>
-              </div>
-            </div>
+          <div className="flex flex-col items-center md:items-center gap-4 order-1 md:order-2">
+            <a href="/" className="group flex flex-col items-center md:items-center gap-3">
+              <img 
+                src="/logo.webp" 
+                alt="Tined Solutions Logo" 
+                className="w-28 h-28 md:w-36 md:h-36 object-contain transition-transform duration-500 group-hover:scale-105"
+              />
+              <span className="text-3xl md:text-4xl font-tanker tracking-wider text-tined-blue text-center md:text-center">
+                Tined<span className="text-elegance-gold">Solutions</span>
+              </span>
+            </a>
           </div>
         </div>
       </div>
 
-      <div className="mt-8 px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-deep-gray/50 font-medium tracking-wide">
-        <p>© {currentYear} Tined Solutions. Todos los derechos reservados.</p>
-        <div className="flex gap-6 items-center">
-            <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> Cordoba, Argentina</span>
-            <div className="h-1 w-1 rounded-full bg-elegance-gold/50"></div>
-            <p>Hecho con precisión y código limpio.</p>
+      <div className="mt-6 px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-[10px] uppercase text-deep-gray/40 font-bold tracking-[0.2em]">
+        <p>© {currentYear} Tined Solutions.</p>
+        <div className="flex gap-4 items-center">
+            <span className="flex items-center gap-1"><Globe className="w-3 h-3" /> Entre Ríos, Argentina</span>
         </div>
       </div>
     </footer>

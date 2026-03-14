@@ -16,18 +16,6 @@ const email = "tinedsolutions@gmail.com";
         <p class="mb-8 text-base lg:text-lg font-light leading-relaxed text-deep-gray">
           Contanos tu idea y pedí tu presupuesto sin miedo. ¿Tenés un proyecto en mente? ¿Necesitás una web que te ayude a vender más o un sistema a medida para organizarte mejor? Escribinos con confianza; estamos acá para escucharte, asesorarte y buscarle la vuelta juntos.
         </p>
-
-        <div class="flex flex-col gap-3">
-          <p class="text-xs font-medium uppercase tracking-widest text-deep-gray">
-            Correo electrónico
-          </p>
-          <a
-            href={`mailto:${email}`}
-            class="text-sm text-tined-blue underline underline-offset-4 transition-colors hover:text-elegance-gold"
-          >
-            {email}
-          </a>
-        </div>
       </div>
 
       <form
@@ -45,7 +33,7 @@ const email = "tinedsolutions@gmail.com";
             type="text"
             required
             autocomplete="name"
-            placeholder="Su nombre completo"
+            placeholder="Tu nombre"
             class="futuristic-input w-full rounded border border-elegance-gold/40 bg-cream px-4 py-3 text-sm text-deep-gray placeholder-deep-gray/70 outline-none transition-colors focus:border-tined-blue focus:ring-0"
           />
         </div>
@@ -60,7 +48,7 @@ const email = "tinedsolutions@gmail.com";
             type="email"
             required
             autocomplete="email"
-            placeholder="su@correo.com"
+            placeholder="tucorreo@dominio.com"
             class="futuristic-input w-full rounded border border-elegance-gold/40 bg-cream px-4 py-3 text-sm text-deep-gray placeholder-deep-gray/70 outline-none transition-colors focus:border-tined-blue focus:ring-0"
           />
         </div>
@@ -74,7 +62,7 @@ const email = "tinedsolutions@gmail.com";
             name="subject"
             type="text"
             required
-            placeholder="¿En qué podemos ayudarle?"
+            placeholder="¿En qué podemos ayudarte?"
             class="futuristic-input w-full rounded border border-elegance-gold/40 bg-cream px-4 py-3 text-sm text-deep-gray placeholder-deep-gray/70 outline-none transition-colors focus:border-tined-blue focus:ring-0"
           />
         </div>
@@ -88,7 +76,7 @@ const email = "tinedsolutions@gmail.com";
             name="message"
             rows="4"
             required
-            placeholder="Cuéntenos sobre su proyecto..."
+            placeholder="Contános que idea tenes en mente..."
             class="futuristic-input w-full resize-none rounded border border-elegance-gold/40 bg-cream px-4 py-3 text-sm text-deep-gray placeholder-deep-gray/70 outline-none transition-colors focus:border-tined-blue focus:ring-0"
           ></textarea>
         </div>
