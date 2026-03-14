@@ -6,27 +6,27 @@ export interface Reason {
 
 export const reasons: Reason[] = [
   {
-    title: "Código de Calidad",
+    title: "Software que no se rompe",
     description:
-      "Aplicamos clean code, revisiones rigurosas y pruebas automatizadas para garantizar software mantenible y libre de deuda técnica.",
+      "Aplicamos buenas prácticas y pruebas rigurosas para entregarte un producto sólido. Nada de parches: código limpio para que tu plataforma escale sin darte dolores de cabeza.",
     icon: "✦",
   },
   {
-    title: "Entrega Puntual",
+    title: "Tiempos reales, sin vueltas",
     description:
-      "Metodologías ágiles y comunicación transparente que nos permiten cumplir plazos sin comprometer la calidad del producto final.",
+      "Trabajamos con metodologías ágiles y comunicación súper transparente. Si nos comprometemos con una fecha de entrega, la cumplimos. Así de simple.",
     icon: "◆",
   },
   {
-    title: "Soluciones a Medida",
+    title: "100% a tu medida",
     description:
-      "No usamos plantillas genéricas. Cada proyecto se diseña desde cero pensando en las necesidades específicas de su negocio.",
+      "Tu negocio es único, tu web también debería serlo. No atamos tu proyecto a plantillas prearmadas; diseñamos y desarrollamos desde cero según lo que realmente necesitás.",
     icon: "▲",
   },
   {
-    title: "Soporte Continuo",
+    title: "Te acompañamos siempre",
     description:
-      "La relación no termina con el lanzamiento. Ofrecemos mantenimiento, actualizaciones y soporte técnico post-entrega.",
+      "No te damos la llave y desaparecemos. Seguimos ahí para el mantenimiento, las actualizaciones y para darte soporte técnico cuando lo precises.",
     icon: "●",
   },
 ];

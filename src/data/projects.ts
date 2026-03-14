@@ -9,28 +9,28 @@ export const projects: Project[] = [
   {
     title: "E-Commerce Platform",
     description:
-      "Plataforma de comercio electrónico con arquitectura de microservicios, gestión de inventario en tiempo real y pasarela de pagos integrada.",
+      "Plataforma de ventas online súper robusta. Armamos una arquitectura escalable con control de stock en tiempo real y pasarela de pagos integrada para que las ventas no paren.",
     tags: ["Node.js", "React", "PostgreSQL"],
     category: "Web App",
   },
   {
     title: "SaaS Dashboard",
     description:
-      "Panel de administración para una startup de analítica de datos, con visualizaciones interactivas y exportación de reportes automatizada.",
+      "Panel de control para una startup de datos. Gráficos interactivos y exportación de reportes automáticos para tomar decisiones de negocio al toque y sin depender de terceros.",
     tags: ["TypeScript", "Next.js", "Chart.js"],
     category: "SaaS",
   },
   {
     title: "API REST Corporativa",
     description:
-      "Diseño e implementación de una API REST para una empresa financiera, con autenticación OAuth2, rate limiting y documentación automática.",
+      "El motor invisible para una empresa financiera. Conexiones seguras, validación de usuarios y documentación automática para que todo el sistema fluya sin cuellos de botella.",
     tags: ["Python", "FastAPI", "Docker"],
     category: "Backend",
   },
   {
     title: "App Móvil de Logística",
     description:
-      "Aplicación multiplataforma para la gestión de rutas de entrega, con seguimiento GPS en tiempo real y notificaciones push.",
+      "Aplicación para gestionar repartos de manera inteligente. Seguimiento por GPS en tiempo real y notificaciones directas al celular para optimizar cada ruta y ahorrar tiempo.",
     tags: ["React Native", "Firebase", "Maps API"],
     category: "Mobile",
   },

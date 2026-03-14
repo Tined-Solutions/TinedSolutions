@@ -8,21 +8,21 @@ export interface ProcessStep {
 export const processSteps: ProcessStep[] = [
   {
     stepLabel: "Paso 1",
-    title: "Nace la idea 💡",
+    title: "La idea 💡",
     description:
-      "Sabés que tu negocio necesita escalar, modernizar su presencia web o lanzar ese proyecto que no te deja dormir. La visión ya la tenés clara.",
+      "Sabés que es el momento de dar el salto. Querés modernizarte, automatizar procesos o lanzar ese proyecto que te viene dando vueltas en la cabeza. La visión ya la tenés clara.",
   },
   {
     stepLabel: "Paso 2",
-    title: "Buscás a los expertos 🚀",
+    title: "El equipo ideal 🚀",
     description:
-      "Te das cuenta de que necesitás un equipo que entienda de código, cuide el diseño y te brinde soluciones reales, sin dolores de cabeza ni demoras.",
+      "Buscás gente que entienda tu negocio y hable tu mismo idioma. Necesitás desarrolladores que te den soluciones reales, sin tecnicismos raros, sin dolores de cabeza ni demoras interminables.",
   },
   {
-    stepLabel: "El gran final (o el inicio)",
-    title: "¡Te contactás con nosotros! 🤝",
+    stepLabel: "Paso 3",
+    title: "¡Manos a la obra! 🤝",
     description:
-      "Nos mandás un mensaje a Tined Solutions. Nos contás tu idea y empezamos a diseñar la estrategia. Del código y la magia, nos encargamos nosotros.",
+      "Nos mandás un mensaje a Tined Solutions. Nos contás qué tenés en mente y armamos la estrategia. De la programación, el diseño y los detalles técnicos nos encargamos nosotros.",
     isFinal: true,
   },
 ];

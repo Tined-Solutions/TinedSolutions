@@ -9,47 +9,59 @@ import BlockReveal from "./BlockReveal.tsx";
   <div class="relative z-10 mx-auto w-full max-w-7xl flex flex-col lg:flex-row-reverse items-center justify-between gap-12 lg:gap-16">
     
     {/* Text Section -> Right on Desktop, Top on Mobile */}
-    <div class="flex-1 text-center lg:text-left">
-      <BlockReveal client:load delay={0.1}>
-        <p class="mb-4 text-xs font-medium uppercase tracking-widest text-elegance-gold">
-          Desarrollo de software
-        </p>
-      </BlockReveal>
+    <div class="flex-1 text-center lg:text-left flex flex-col">
+      <div class="order-1 lg:order-none">
+        <BlockReveal client:load delay={0.1}>
+          <p class="mb-4 text-xs font-medium uppercase tracking-widest text-elegance-gold">
+            Desarrollo de software a medida
+          </p>
+        </BlockReveal>
 
-      <BlockReveal client:load delay={0.3}>
-        <h1 class="font-tanker mb-6 text-6xl leading-[0.95] tracking-[0.02em] text-tined-blue sm:text-7xl lg:text-[6.5rem]">
-          Código que <br />
-          <span class="text-elegance-gold">funciona</span> y <br />
-          <span class="text-elegance-gold">perdura</span>.
-        </h1>
-      </BlockReveal>
+        <BlockReveal client:load delay={0.3}>
+          <h1 class="font-tanker mb-6 text-5xl leading-[0.95] tracking-[0.02em] text-tined-blue sm:text-6xl lg:text-[5.5rem]">
+            Llevá tu <br />
+            <span class="text-elegance-gold">negocio</span> al <br />
+            <span class="text-elegance-gold">mundo digital</span> <br />
+            en serio.
+          </h1>
+        </BlockReveal>
+      </div>
 
-      <BlockReveal client:load delay={0.5} duration={0.6}>
-        <p class="mx-auto lg:mx-0 mb-8 max-w-xl text-lg sm:text-xl font-light leading-relaxed text-deep-gray">
-          Construimos soluciones digitales con precisión y claridad. Sin complejidad innecesaria, sin adornos superfluos. Solo software que resuelve problemas reales.
-        </p>
-      </BlockReveal>
+      {/* Placeholder for Logo in Mobile (Order 2) */}
+      <div class="order-2 lg:hidden w-full flex justify-center mb-8">
+        <BlockReveal client:load delay={0.4} blockColor="#2c3e50">
+          <img src="/logo.webp" alt="Tined Solutions Logo" class="max-w-[200px] h-auto object-contain drop-shadow-2xl" />
+        </BlockReveal>
+      </div>
 
-      <BlockReveal client:load delay={0.7} className="mx-auto lg:mx-0">
-        <div class="flex flex-col items-center justify-center lg:justify-start gap-4 sm:flex-row">
-          <a
-            href="#portfolio"
-            class="glow-button-primary rounded bg-tined-blue px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-tined-blue/90"
-          >
-            Ver nuestro trabajo
-          </a>
-          <a
-            href="#contact"
-            class="glow-button-secondary rounded border border-elegance-gold px-6 py-3 text-sm font-medium text-tined-blue transition-colors hover:bg-elegance-gold/10"
-          >
-            Contáctenos
-          </a>
-        </div>
-      </BlockReveal>
+      <div class="order-3 lg:order-none">
+        <BlockReveal client:load delay={0.5} duration={0.6}>
+          <p class="mx-auto lg:mx-0 mb-8 max-w-xl text-lg sm:text-xl font-light leading-relaxed text-deep-gray">
+            Hacemos soluciones web a medida que funcionan de verdad. Transformamos tus ideas en las herramientas que necesitás para escalar.
+          </p>
+        </BlockReveal>
+
+        <BlockReveal client:load delay={0.7} className="mx-auto lg:mx-0">
+          <div class="flex flex-col items-center justify-center lg:justify-start gap-4 sm:flex-row">
+            <a
+              href="#portfolio"
+              class="glow-button-primary rounded bg-tined-blue px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-tined-blue/90"
+            >
+              Mirá lo que hacemos
+            </a>
+            <a
+              href="#contact"
+              class="glow-button-secondary rounded border border-elegance-gold px-6 py-3 text-sm font-medium text-tined-blue transition-colors hover:bg-elegance-gold/10"
+            >
+              Hablemos de tu proyecto
+            </a>
+          </div>
+        </BlockReveal>
+      </div>
     </div>
 
-    {/* Logo Section -> Left on Desktop, Bottom on Mobile */}
-    <div class="flex-1 flex justify-center lg:justify-start w-full max-w-sm lg:max-w-md">
+    {/* Logo Section -> Visible only on Desktop (Hidden on Mobile) */}
+    <div class="hidden lg:flex flex-1 justify-center lg:justify-start w-full max-w-sm lg:max-w-md">
       <BlockReveal client:load delay={0.4} blockColor="#2c3e50">
         <img src="/logo.webp" alt="Tined Solutions Logo" class="w-full h-auto object-contain drop-shadow-2xl" />
       </BlockReveal>
