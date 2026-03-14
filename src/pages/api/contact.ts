@@ -13,10 +13,28 @@ interface ResendApiResponse {
   message?: string;
 }
 
-export const POST: APIRoute = async ({ request }) => {
-  const resendApiKey = import.meta.env.RESEND_API_KEY;
-  const toEmail = import.meta.env.CONTACT_TO_EMAIL ?? "tinedsolutions@gmail.com";
-  const fromEmail = import.meta.env.CONTACT_FROM_EMAIL ?? "Tined Solutions <onboarding@resend.dev>";
+interface ContactRuntimeEnv {
+  RESEND_API_KEY?: string;
+  CONTACT_TO_EMAIL?: string;
+  CONTACT_FROM_EMAIL?: string;
+}
+
+function getRuntimeEnv(locals: Parameters<APIRoute>[0]["locals"]): ContactRuntimeEnv {
+  const runtime = (locals as { runtime?: { env?: ContactRuntimeEnv } }).runtime;
+  return runtime?.env ?? {};
+}
+
+export const POST: APIRoute = async ({ request, locals }) => {
+  const runtimeEnv = getRuntimeEnv(locals);
+  const resendApiKey = runtimeEnv.RESEND_API_KEY ?? import.meta.env.RESEND_API_KEY;
+  const toEmail =
+    runtimeEnv.CONTACT_TO_EMAIL ??
+    import.meta.env.CONTACT_TO_EMAIL ??
+    "tinedsolutions@gmail.com";
+  const fromEmail =
+    runtimeEnv.CONTACT_FROM_EMAIL ??
+    import.meta.env.CONTACT_FROM_EMAIL ??
+    "Tined Solutions <onboarding@resend.dev>";
 
   if (!resendApiKey) {
     return new Response(
@@ -63,7 +81,18 @@ export const POST: APIRoute = async ({ request }) => {
     }),
   });
 
-  const resendData = (await resendResponse.json()) as ResendApiResponse;
+  const resendRawBody = await resendResponse.text();
+  const resendData = (() => {
+    if (!resendRawBody) {
+      return {} as ResendApiResponse;
+    }
+
+    try {
+      return JSON.parse(resendRawBody) as ResendApiResponse;
+    } catch {
+      return { message: resendRawBody } as ResendApiResponse;
+    }
+  })();
 
   if (!resendResponse.ok) {
     return new Response(
