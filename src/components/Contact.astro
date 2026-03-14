@@ -127,6 +127,19 @@ const email = "tinedsolutions@gmail.com";
     submitText.textContent = loading ? "Enviando..." : "Enviar mensaje";
   }
 
+  function parseApiMessage(rawBody: string): string | undefined {
+    if (!rawBody) {
+      return undefined;
+    }
+
+    try {
+      const parsed = JSON.parse(rawBody) as { message?: string };
+      return parsed.message;
+    } catch {
+      return rawBody;
+    }
+  }
+
   form?.addEventListener("submit", async (event: Event) => {
     event.preventDefault();
 
@@ -156,10 +169,14 @@ const email = "tinedsolutions@gmail.com";
         body: JSON.stringify({ name, email, subject, message }),
       });
 
-      const data = (await response.json()) as { message?: string };
+      const rawBody = await response.text();
+      const apiMessage = parseApiMessage(rawBody);
 
       if (!response.ok) {
-        showMessage(data.message ?? "No se pudo enviar el mensaje.", false);
+        showMessage(
+          apiMessage ?? `No se pudo enviar el mensaje. Código: ${response.status}.`,
+          false
+        );
         return;
       }
 
@@ -168,8 +185,12 @@ const email = "tinedsolutions@gmail.com";
         true
       );
       form.reset();
-    } catch {
-      showMessage("Ocurrió un error de red. Intente nuevamente.", false);
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? `Ocurrió un error de red: ${error.message}`
+          : "Ocurrió un error de red. Intente nuevamente.";
+      showMessage(message, false);
     } finally {
       setLoading(false);
     }
