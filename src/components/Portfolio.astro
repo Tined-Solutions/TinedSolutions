@@ -19,8 +19,8 @@ import { projects } from "../data/projects";
 
     <div class="grid gap-6 sm:grid-cols-2">
       {
-        projects.map(({ title, description, tags, category }) => (
-          <article class="futuristic-card group reveal-on-scroll border border-elegance-gold/35 p-6 transition-colors hover:border-elegance-gold">
+        projects.map(({ title, description, tags, category, siteUrl }) => (
+          <article class="futuristic-card group reveal-on-scroll relative border border-elegance-gold/35 p-6 pb-14 transition-colors hover:border-elegance-gold">
             <div class="mb-4 flex items-start justify-between">
               <h3 class="font-tanker text-2xl tracking-wide text-tined-blue">{title}</h3>
               <span class="ml-4 shrink-0 rounded border border-elegance-gold px-2 py-0.5 text-xs text-deep-gray">
@@ -35,6 +35,33 @@ import { projects } from "../data/projects";
                 </span>
               ))}
             </div>
+            <a
+              href={siteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visitar página"
+              class="group/icon absolute bottom-4 right-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-elegance-gold/40 bg-cream/80 text-tined-blue/85 transition-colors hover:border-elegance-gold hover:text-tined-blue"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-4 w-4"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18" />
+                <path d="M12 3a15 15 0 0 1 0 18" />
+                <path d="M12 3a15 15 0 0 0 0 18" />
+              </svg>
+              <span class="pointer-events-none absolute -top-8 right-0 translate-y-1 rounded-md border border-elegance-gold/40 bg-cream/95 px-2 py-1 text-xs font-medium uppercase tracking-wide text-tined-blue opacity-0 shadow-sm transition-all duration-200 group-hover/icon:translate-y-0 group-hover/icon:opacity-100">
+                Visitar página
+              </span>
+            </a>
           </article>
         ))
       }
